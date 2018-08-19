@@ -303,7 +303,7 @@ var pleyembed = new RichEmbed()
 client.on("ready", async () => {
 
     function randomStatus() {
-        let status = [`In Coding`,`Made with sperm`,`iHH.CTeam`]
+        let status = [`In Coding`,`My Prefix is : o#`,`iHH.CTeam`,`type: o#help`,`Music Bot`]
           let rstatus = Math.floor(Math.random() * status.length);
         client.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/Brickmaster__"});
     }; setInterval(randomStatus, 20000)
