@@ -1,5 +1,5 @@
 const { Client, Util, RichEmbed } = require('discord.js');
-const { prefix } = require("./config.json");
+const { prefix } = require(process.env.prefix);
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const opus = require("node-opus");
@@ -255,7 +255,7 @@ var adedembed = new RichEmbed()
   .setAuthor(`Added to Queue`, `https://images-ext-1.discordapp.net/external/YwuJ9J-4k1AUUv7bj8OMqVQNz1XrJncu4j8q-o7Cw5M/http/icons.iconarchive.com/icons/dakirby309/simply-styled/256/YouTube-icon.png`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .addField('Title', `__[${song.title}](${song.url})__`, false)
-  .addField("Duration", `${song.durationh}:${song.durationm}:${song.durations}`, true)
+  .addField("Duration", `${song.durationh} Hours, ${song.durationm} Minutes, ${song.durations} Seconds`, true)
   .addField('Requested by', `${song.meminta}`)
   .setTimestamp();
 		
@@ -290,7 +290,7 @@ var pleyembed = new RichEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .addField('Title', `__[${song.title}](${song.url})__`, false)
   .addField("Volume", `${serverQueue.volume}%`, true)
-  .addField("Duration", `${song.durationh}:${song.durationm}:${song.durations}`, true)
+  .addField("Duration", `${song.durationh} Hours, ${song.durationm} Minutes, ${song.durations} Seconds`, true)
   .addField('Voice Channel', `**${song.mamang}**`, true)
   .addField('Requested by', `${song.meminta}`, true)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
@@ -300,12 +300,4 @@ var pleyembed = new RichEmbed()
 
 }
 
-client.on("ready", async () => {
-
-    function randomStatus() {
-        let status = [`In Coding`,`My Prefix is : o#`,`iHH.CTeam`,`type: o#help`,`Music Bot`]
-          let rstatus = Math.floor(Math.random() * status.length);
-        client.user.setActivity(status[rstatus], {type: 'STREAMING', url: "https://www.twitch.tv/Brickmaster__"});
-    }; setInterval(randomStatus, 20000)
-});
 client.login(process.env.BOT_TOKEN);
